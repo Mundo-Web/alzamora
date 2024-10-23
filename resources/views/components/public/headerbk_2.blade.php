@@ -261,6 +261,60 @@
     </div>
   </div>
 
+  <div class="flex justify-center items-center gap-3">
+          @if ($general[0]->facebook)
+            <a href="{{ $general[0]->facebook }}" target="_blank"><img src="{{ asset('images/svg/image_20.svg') }}"
+                alt="facebook"></a>
+          @endif
+          @if ($general[0]->instagram)
+            <a href="{{ $general[0]->instagram }}" target="_blank"><img src="{{ asset('images/svg/image_21.svg') }}"
+                alt="instagram"></a>
+          @endif
+          @if ($general[0]->twitter)
+            <a href="{{ $general[0]->twitter }}" target="_blank"><img src="{{ asset('images/svg/image_22.svg') }}"
+                alt="twitter"></a>
+          @endif
+          @if ($general[0]->linkedin)
+            <a href="{{ $general[0]->linkedin }}" target="_blank"><img src="{{ asset('images/svg/image_23.svg') }}"
+                alt="linkedin"></a>
+          @endif
+          @if ($general[0]->youtube)
+            <a href="{{ $general[0]->youtube }}" target="_blank"><img src="{{ asset('images/svg/image_24.svg') }}"
+                alt="youtube"></a>
+          @endif
+          @if ($general[0]->tiktok)
+            <a href="{{ $general[0]->tiktok }}" target="_blank"><img src="{{ asset('images/svg/image_tiktok.svg') }}"
+                alt="tiktok"></a>
+          @endif
+  </div>
+
+  <div class="hidden md:flex justify-center items-center gap-5">
+          <div class="flex justify-start items-center gap-2">
+            <div class="flex justify-center items-center">
+              <img src="{{ asset('images/svg/image_18.svg') }}" alt="telefono">
+            </div>
+            @if (!is_null($general[0]->cellphone) && !is_null($general[0]->office_phone))
+              <p class="font-roboto font-normal text-text16 text-white">{{ $general[0]->cellphone }} -
+                {{ $general[0]->office_phone }}</p>
+            @elseif(!is_null($general[0]->cellphone))
+              <p class="font-roboto font-normal text-text16 text-white">{{ $general[0]->cellphone }}</p>
+            @elseif(!is_null($general[0]->office_phone))
+              <p class="font-roboto font-normal text-text16 text-white">{{ $general[0]->office_phone }}</p>
+            @else
+            @endif
+
+          </div>
+          @if (is_null($general[0]->email))
+          @else
+            <div class="flex justify-start items-center gap-2">
+              <div class="flex justify-center items-center">
+                <img src="{{ asset('images/svg/image_19.svg') }}" alt="telefono">
+              </div>
+              <p class="font-roboto font-normal text-text16 text-white">{{ $general[0]->email }}</p>
+            </div>
+          @endif
+  </div>
+
   <script>
     function openSearch() {
       document.getElementById("myOverlay").style.display = "block";

@@ -25,24 +25,6 @@
             background-image: url({{ asset('images/svg/image_30.svg') }});
         }
 
-        /* .custom-swiper-buttons .swiper-button-prev:after {
-                background-image: url({{ asset('images/svg/image_32.svg') }});
-            }
-
-            .custom-swiper-buttons .swiper-button-prev:hover:after {
-                background-image: url("./images/svg/image_34.svg");
-            }
-     */
-
-        /* .custom-swiper-buttons .swiper-button-next:after {
-                background-image: url({{ asset('images/svg/image_33.svg') }});
-            }
-
-            .custom-swiper-buttons .swiper-button-next:hover:after {
-                background-image: url("./images/svg/image_35.svg");
-            } */
-
-        /* -------------- */
         .swiper-button-next {
             background-color: #FFD9C7;
             background-repeat: no-repeat;
@@ -82,55 +64,279 @@
 @section('content')
     <main>
 
-        <section class="pt-[155px]">
 
-            <div class="swiper slider_productos">
-                <div class="swiper-wrapper">
-                    @foreach ($slider as $slide)
-                        <div class="swiper-slide">
-                            <div class="bg-[#E6E4E5] pt-10">
-                                <div class="flex flex-col items-center gap-8 w-11/12 mx-auto md:max-w-[900px] lg:min-h-28">
-                                    <h2
-                                        class="text-[#082252] font-roboto font-bold text-text28 sm:text-text40 leading-tight text-center">
-                                        {{ $slide->title }}</h2>
-                                    {{-- <div class="w-full md:w-auto">
-                                        <div
-                                            class="flex flex-col items-center w-full md:w-auto md:flex-row md:justify-center md:items-center gap-10">
-                                            <a href="{{route('catalogo', 0)}}"
-                                                class="bg-[#FF5E14] py-3 px-6 rounded-xl text-white font-roboto font-semibold text-text16 w-full md:w-auto text-center">Productos</a>
-                                            <a href="{{route('contacto')}}"
-                                                class="text-[#FF5E14] font-roboto font-medium text-text16 flex justify-center items-center w-full md:w-auto text-center">
-                                                <span>Contactar</span>
-                                                <div class="flex justify-center items-center">
-                                                    <img src="{{ asset('images/svg/image_28.svg') }}" alt="arrow">
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div> --}}
+        <section class="flex overflow-hidden flex-col bg-stone-900">
+            <div class="flex relative flex-col pb-10 w-full min-h-[700px] max-md:max-w-full">
+                <img loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/7e53447697fa57cb280b42e9f8b0c099876ec968ac81b4d1e6c13b63a06c3f19?placeholderIfAbsent=true&apiKey=72fae0f4c808496790606e16dad566da"
+                    alt="" class="object-cover absolute inset-0 size-full" />
+
+                <main class="flex relative flex-wrap gap-10 items-end self-center mt-4 text-white max-md:max-w-full">
+                    <h1
+                        class="text-5xl uppercase leading-[62px] min-w-[240px] w-[584px] max-md:max-w-full max-md:text-4xl max-md:leading-[58px]">
+                        Soluciones legales para desafíos modernos.
+                    </h1>
+                    <section class="flex flex-col min-w-[240px] w-[475px] max-md:max-w-full">
+                        <div class="flex shrink-0 bg-white bg-opacity-20 h-[492px] max-md:max-w-full"></div>
+                        <form class="absolute flex z-10 flex-col p-6 mt-0 max-md:px-5 max-md:mt-0 max-md:max-w-full">
+                            <h2 class="w-full text-2xl leading-7 uppercase max-md:max-w-full">
+                                ¿Tienes alguna pregunta o necesitas más información?
+                            </h2>
+                            <div class="flex flex-col mt-6 w-full text-base max-md:max-w-full">
+                                <div class="flex flex-col w-full max-md:max-w-full">
+                                    <div class="mb-3">
+                                        <label for="fullName" class="sr-only">Nombre completo</label>
+                                        <input type="text" id="fullName"
+                                            class="gap-2.5 w-full p-4 border-b border-white bg-transparent text-white"
+                                            placeholder="Nombre completo" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="sr-only">Teléfono</label>
+                                        <input type="tel" id="phone"
+                                            class="gap-2.5 w-full p-4 border-b border-white bg-transparent text-white"
+                                            placeholder="Teléfono" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="sr-only">E-mail</label>
+                                        <input type="email" id="email"
+                                            class="gap-2.5 w-full p-4 border-b border-white bg-transparent text-white"
+                                            placeholder="E-mail" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="comment" class="sr-only">Comentario</label>
+                                        <textarea id="comment" class="gap-2.5 w-full p-4 border-b border-white bg-transparent text-white h-24"
+                                            placeholder="Comentario" required></textarea>
+                                    </div>
                                 </div>
-                                <div class="flex justify-center items-center pt-10">
-
-                                    <img src="{{ asset($slide->url_image . $slide->name_image) }}" alt="producto"
-                                        class="w-full h-full object-contain bg-top">
-
-                                    {{-- <img src="{{ asset($slide->url_image2 . $slide->name_image2) }}" alt="producto"
-                                        class="w-full h-[400px] object-contain block bg-top md:hidden"> --}}
-                                </div>
+                                <button type="submit"
+                                    class="gap-2.5 self-stretch px-6 py-3.5 mt-10 w-full leading-tight uppercase bg-stone-900 min-h-[44px] text-white max-md:px-5 max-md:max-w-full">
+                                    ENVIAR MENSAJE
+                                </button>
                             </div>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="swiper-pagination_productos !flex justify-center py-5 lg:py-10 mt-3"></div>
+                        </form>
+                    </section>
+                </main>
             </div>
         </section>
 
-        @if ($benefit->isEmpty())
+
+
+        <section class="flex overflow-hidden flex-col bg-stone-900">
+            <div class="w-full max-md:max-w-full">
+                <div class="flex max-md:flex-col">
+                    <figure class="flex flex-col w-[50%] max-md:w-full">
+                        <img loading="lazy"
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/835c01d57502503a8167951e15d6b468d94cd7eb153facd2a01a79cf2510baee?placeholderIfAbsent=true&apiKey=72fae0f4c808496790606e16dad566da"
+                            alt="Alzamora & Asociados Law Firm Office"
+                            class="object-cover grow w-full aspect-[0.7] max-md:mt-10 max-md:max-w-full" />
+                    </figure>
+                    <article class="flex flex-col w-[50%] max-md:w-full">
+                        <div class="flex flex-col items-center justify-center text-white my-auto py-20 max-md:max-w-full">
+                            <div class="flex flex-col my-auto min-w-[240px] max-w-xl mx-auto px-[5%]">
+                                <h1 class="text-4xl leading-10 uppercase max-md:max-w-full">
+                                    Tu Socio Estratégico en el Mundo Legal
+                                </h1>
+                                <div class="flex flex-col mt-10 w-full text-lg leading-6 max-md:max-w-full">
+                                    <p class="max-md:max-w-full">
+                                        <span class="uppercase">ALZAMORA & ASOCIADOS ESTUDIO JURÍDICO</span>
+                                        <span class="lowercase">, OFRECE SOLUCIONES LEGALES INNOVADORAS ADAPTADAS A LAS
+                                            EXIGENCIAS ACTUALES. </span>
+                                        <span class="uppercase">D</span>
+                                        <span class="lowercase">ISEÑAMOS LAS ESTRATEGIAS MÁS EFECTIVAS PARA NUESTROS
+                                            CLIENTES, ASESORÁNDOLOS EN LA IDENTIFICACIÓN Y EVALUACIÓN DE ELEMENTOS QUE
+                                            PUEDAN CREAR RIESGOS DE CONFRONTACIÓN O SANCIONES EN LAS OPERACIONES QUE
+                                            REALIZAN.</span>
+                                    </p>
+                                    <p class="mt-4 max-md:max-w-full">
+                                        <span class="uppercase">U</span>
+                                        <span class="lowercase">NA COMUNICACIÓN DIRECTA Y FLUIDA ES LA CLAVE PARA CONSTRUIR
+                                            UNA RELACIÓN A LARGO PLAZO. </span>
+                                        <span class="uppercase">P</span>
+                                        <span class="lowercase">OR ESO, TANTO NUESTRO EQUIPO COMO NUESTROS CANALES DE
+                                            ATENCIÓN ESTÁN SIEMPRE DISPONIBLES PARA LO QUE PUEDAN NECESITAR NUESTROS
+                                            CLIENTES.</span>
+                                    </p>
+                                </div>
+                                <div class="flex gap-10 items-start self-start mt-10 uppercase">
+                                    <div class="flex flex-col w-[108px]" role="presentation">
+                                        <p class="text-5xl leading-tight max-md:text-4xl">+500</p>
+                                        <p class="text-xs leading-tight">casos ganado</p>
+                                    </div>
+                                    <div class="flex flex-col" role="presentation">
+                                        <p class="text-5xl leading-tight max-md:text-4xl">98%</p>
+                                        <p class="text-xs leading-tight">satisfacción del cliente</p>
+                                    </div>
+                                </div>
+                                <a href="#about-us"
+                                    class="gap-2.5 self-start px-6 py-3 mt-10 text-base leading-tight uppercase bg-neutral-100 text-stone-900 max-md:px-5"
+                                    tabindex="0">
+                                    Sobre nosotros
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="flex overflow-hidden flex-col bg-white">
+            <div class="w-full max-md:max-w-full">
+                <div class="flex max-md:flex-col">
+
+                    <article class="flex flex-col w-[50%] max-md:w-full">
+                        <div class="flex flex-col items-center justify-center text-black my-auto py-20 max-md:max-w-full">
+                            <div class="flex flex-col my-auto min-w-[240px] max-w-xl mx-auto px-[5%]">
+
+                                <h1 class="text-4xl leading-10 uppercase max-md:max-w-full font-PreloSemibold">
+                                    Tu Socio Estratégico en el Mundo Legal
+                                </h1>
+                                <div class="flex flex-col mt-10 w-full text-lg leading-6 max-md:max-w-full">
+                                    <p class="max-md:max-w-full">
+                                        <span class="uppercase">ALZAMORA & ASOCIADOS ESTUDIO JURÍDICO</span>
+                                        <span class="lowercase">, OFRECE SOLUCIONES LEGALES INNOVADORAS ADAPTADAS A LAS
+                                            EXIGENCIAS ACTUALES. </span>
+                                        <span class="uppercase">D</span>
+                                        <span class="lowercase">ISEÑAMOS LAS ESTRATEGIAS MÁS EFECTIVAS PARA NUESTROS
+                                            CLIENTES, ASESORÁNDOLOS EN LA IDENTIFICACIÓN Y EVALUACIÓN DE ELEMENTOS QUE
+                                            PUEDAN CREAR RIESGOS DE CONFRONTACIÓN O SANCIONES EN LAS OPERACIONES QUE
+                                            REALIZAN.</span>
+                                    </p>
+                                    <p class="mt-4 max-md:max-w-full">
+                                        <span class="uppercase">U</span>
+                                        <span class="lowercase">NA COMUNICACIÓN DIRECTA Y FLUIDA ES LA CLAVE PARA CONSTRUIR
+                                            UNA RELACIÓN A LARGO PLAZO. </span>
+                                        <span class="uppercase">P</span>
+                                        <span class="lowercase">OR ESO, TANTO NUESTRO EQUIPO COMO NUESTROS CANALES DE
+                                            ATENCIÓN ESTÁN SIEMPRE DISPONIBLES PARA LO QUE PUEDAN NECESITAR NUESTROS
+                                            CLIENTES.</span>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </article>
+                    <article class="flex flex-col w-[50%] max-md:w-full">
+                        <div class="text-black my-auto py-20 max-md:max-w-full pl-[5%]">
+
+
+                            <div class="swiper slider_productos">
+                                <div class="swiper-wrapper max-w-lg">
+                                    <div class="swiper-slide max-w-md">
+                                        <div class="max-w-md">
+                                            <img class="w-full object-cover object-center" src="{{ asset('images/img/servicio1.png') }}" />
+                                            <div>
+                                                <h2 class="text-base uppercase">CONSULTORÍA Legal</h2>
+                                                <p>Asesoramos para identificar los riesgos y brindamos soluciones
+                                                    legales innovadoras para prevenir problemas jurídicos próximos.</p>
+                                            </div>
+                                            <div><a class="bg-black text-white">MAS INFORMACIÓN 1</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide max-w-md">
+                                        <div class="max-w-md">
+                                            <img src="{{ asset('images/img/servicio2.png') }}" />
+                                            <div>
+                                                <h2 class="text-base uppercase">CONSULTORÍA Legal</h2>
+                                                <p>Asesoramos para identificar los riesgos y brindamos soluciones
+                                                    legales innovadoras para prevenir problemas jurídicos próximos.</p>
+                                            </div>
+                                            <div><a class="bg-black text-white">MAS INFORMACIÓN 2</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide max-w-md">
+                                        <div class="max-w-md">
+                                            <img src="{{ asset('images/img/servicio2.png') }}" />
+                                            <div>
+                                                <h2 class="text-base uppercase">CONSULTORÍA Legal</h2>
+                                                <p>Asesoramos para identificar los riesgos y brindamos soluciones
+                                                    legales innovadoras para prevenir problemas jurídicos próximos.</p>
+                                            </div>
+                                            <div><a class="bg-black text-white">MAS INFORMACIÓN 3</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide max-w-md">
+                                        <div class="max-w-md">
+                                            <img src="{{ asset('images/img/servicio2.png') }}" />
+                                            <div>
+                                                <h2 class="text-base uppercase">CONSULTORÍA Legal</h2>
+                                                <p>Asesoramos para identificar los riesgos y brindamos soluciones
+                                                    legales innovadoras para prevenir problemas jurídicos próximos.</p>
+                                            </div>
+                                            <div><a class="bg-black text-white">MAS INFORMACIÓN 4</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="flex overflow-hidden flex-col text-white">
+            <article class="flex flex-col items-start w-full bg-stone-900 max-md:pr-5 max-md:max-w-full">
+                <div
+                    class="flex relative flex-col items-start px-10 pt-32 max-w-full min-h-[962px] w-[589px] max-md:pt-24 max-md:pl-5">
+                    <img loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/efc410ac29a98675fe2ce5f36a7051d795122a946d7f6dd20d896672d70d1fac?placeholderIfAbsent=true&apiKey=72fae0f4c808496790606e16dad566da"
+                        alt="" class="object-cover absolute inset-0 size-full" />
+                    <div
+                        class="flex relative flex-col items-end px-20 pt-28 pb-96 mr-0 min-h-[827px] max-md:py-24 max-md:pl-5 max-md:max-w-full">
+                        <img loading="lazy"
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/f7b749bb0d5ccdd600efb98a98b322fe18c5fc56c56d9ee325b02971b0b49e93?placeholderIfAbsent=true&apiKey=72fae0f4c808496790606e16dad566da"
+                            alt="" class="object-cover absolute inset-0 size-full" />
+                        <div class="flex relative flex-col justify-center mr-0 mb-0 w-full max-md:mb-2.5">
+                            <h2 class="text-4xl leading-10 text-center uppercase max-md:max-w-full">
+                                Lo Que Nuestros Clientes <br /> Dicen de Nosotros
+                            </h2>
+                            <blockquote class="flex flex-col items-start mt-8 w-full text-center max-md:max-w-full">
+                                <p class="text-lg leading-6 max-md:max-w-full">
+                                    "Trabajar con Alzamora & asociados ha sido una experiencia gratificante, me apoyaron en
+                                    un momento dificil para mi familia y para mi. Lograron poder proteger y defender mis
+                                    derechos"
+                                </p>
+                                <cite class="mt-6 text-base leading-tight max-md:max-w-full">
+                                    Carlos Martínez, Gerente General
+                                </cite>
+                            </blockquote>
+                            <a href="#about"
+                                class="gap-2.5 self-center px-6 py-3 mt-8 text-base leading-tight uppercase bg-neutral-100 text-stone-900 max-md:px-5"
+                                tabindex="0">
+                                Sobre nosotros
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {{-- @if ($benefit->isEmpty())
         @else
             <section>
                 <div class="flex flex-col gap-10 w-11/12 mx-auto pt-10 pb-20">
                     <h2
                         class="text-[#082252] font-roboto font-bold text-text32 md:text-text40 leading-tight text-left md:text-center w-full md:max-w-[1064px] mx-auto">
-                        Especialistas en tratamiento de aguas.<br> Suministro de productos químicos e instrumentos de medición.
+                        Especialistas en tratamiento de aguas.<br> Suministro de productos químicos e instrumentos de
+                        medición.
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                         @foreach ($benefit as $beneficios)
@@ -192,9 +398,9 @@
                     </div>
                 </div>
             </section>
-        @endif
+        @endif --}}
 
-        @if ($logos->isEmpty())
+        {{-- @if ($logos->isEmpty())
         @else
             <section class="py-12 bg-[#082252]">
                 <div class="max-w-[700px] mx-auto pb-10 w-11/12">
@@ -217,10 +423,10 @@
                     </div>
                 </div>
             </section>
-        @endif
+        @endif --}}
 
 
-        @if ($testimonie->isEmpty())
+        {{-- @if ($testimonie->isEmpty())
         @else
             <section class="bg-white pt-10 mt-10 pb-32 ">
                 <div class="w-11/12 mx-auto flex flex-col gap-3 items-center">
@@ -258,19 +464,21 @@
                 </div>
 
             </section>
-        @endif
+        @endif --}}
 
 
-        @if ($posts->isEmpty())
+        {{-- @if ($posts->isEmpty())
         @else
             <section class="hidden md:block">
                 <div class="flex flex-col gap-8 w-11/12 mx-auto pb-20">
                     <div class="flex justify-between items-center">
 
                         <div class="flex flex-col gap-2">
-                            <h2 class="text-[#082252] font-roboto font-bold text-text52 leading-tight">Últimas publicaciones
+                            <h2 class="text-[#082252] font-roboto font-bold text-text52 leading-tight">Últimas
+                                publicaciones
                             </h2>
-                            <p class="text-[#082252] font-roboto font-normal text-text22">Suministro de productos químicos e
+                            <p class="text-[#082252] font-roboto font-normal text-text22">Suministro de productos químicos
+                                e
                                 instrumentos de medición.</p>
                         </div>
 
@@ -314,10 +522,10 @@
                     </div>
                 </div>
             </section>
-        @endif
+        @endif --}}
 
 
-        @if ($mismarcas->isEmpty())
+        {{-- @if ($mismarcas->isEmpty())
         @else
             <section class="py-12 bg-[#082252]">
                 <div class="max-w-[700px] mx-auto pb-10 w-11/12">
@@ -340,19 +548,19 @@
                     </div>
                 </div>
             </section>
-        @endif
+        @endif --}}
 
 
-        <section class="bg-[#0C4AC3]">
+        {{-- <section class="bg-[#0C4AC3]">
             <div class="grid grid-cols-1 md:grid-cols-2  relative overflow-hidden">
                 <div class="flex flex-col gap-5 justify-center w-11/12 mx-auto z-[50] md:max-w-[620px] pt-10">
                     <div class="flex flex-col gap-2">
                         <h3 class="font-roboto font-bold text-white text-text40 md:text-text64 leading-tight">Descarga
                             nuestros Catálogos</h3>
                         <p class="font-roboto font-normal text-white text-text18">
-                            Explora nuestra amplia gama de productos y soluciones para el tratamiento de agua y 
-                            productos químicos especializados. Descarga nuestro catálogo completo para conocer 
-                            en detalle nuestras ofertas, especificaciones técnicas y cómo podemos ayudarte a 
+                            Explora nuestra amplia gama de productos y soluciones para el tratamiento de agua y
+                            productos químicos especializados. Descarga nuestro catálogo completo para conocer
+                            en detalle nuestras ofertas, especificaciones técnicas y cómo podemos ayudarte a
                             mejorar tus procesos. ¡Accede a la información que necesitas con un solo clic!
                         </p>
                     </div>
@@ -367,14 +575,16 @@
                     <img src="{{ asset('images/img/image_17.png') }}" alt="catalogo">
                 </div>
 
-                <div class="flex justify-center items-center absolute bottom-0 md:right-0 bg-cover z-[25] w-full md:w-auto">
+                <div
+                    class="flex justify-center items-center absolute bottom-0 md:right-0 bg-cover z-[25] w-full md:w-auto">
                     <img src="{{ asset('images/img/image_16.png') }}" alt="shadow" class="hidden md:block">
-                    <img src="{{ asset('images/img/image_18.png') }}" alt="shadow" class="block md:hidden object-cover w-full md:w-auto">
+                    <img src="{{ asset('images/img/image_18.png') }}" alt="shadow"
+                        class="block md:hidden object-cover w-full md:w-auto">
                 </div>
             </div>
-        </section>
+        </section> --}}
 
-        <section>
+        {{-- <section>
             <div class="relative w-11/12 mx-auto md:w-full bg-[#F5F5F5] md:bg-transparent my-20 md:my-0 py-10 px-5 md:p-0">
                 <img src="{{ asset('images/img/image_19.png') }}" alt="fondo"
                     class="w-full h-[877px] object-cover hidden md:block">
@@ -426,7 +636,8 @@
                                 <input type="hidden" name="client_latitude" id="latitud">
                                 <input type="hidden" name="client_longitude" id="longitud">
                                 <input type="hidden" name="client_system" id="sistema">
-                                <input type="hidden" id="tipo" placeholder="tipo" name="source" value="Inicio" />
+                                <input type="hidden" id="tipo" placeholder="tipo" name="source"
+                                    value="Inicio" />
                                 <div class="flex justify-center items-center py-5">
                                     <button type="submit"
                                         class="text-text18 font-roboto font-semibold text-white bg-[#FF5E14] py-4 px-6 w-full text-center rounded-lg">Enviar
@@ -440,9 +651,7 @@
                             <h2 class="font-semibold font-roboto text-[#082252] text-text32">
                                 Datos de contacto
                             </h2>
-                            {{-- <p class="font-robot font-normal text-[#082252] text-text18">
-                                Donec ac nisl ut mauris facilisis finibus. Nulla sed ultrices enim, nec consectetur tortor.
-                            </p> --}}
+                        
                         </div>
 
                         <div class="flex flex-col gap-10 bg-white md:bg-transparent rounded-xl md:rounded-none p-6 md:p-0">
@@ -477,29 +686,37 @@
 
                                 </div>
                                 <div class="flex flex-col gap-1">
-                                    <p class="font-semibold text-[#082252] font-roboto text-text18 leading-none mb-3">Número de
+                                    <p class="font-semibold text-[#082252] font-roboto text-text18 leading-none mb-3">
+                                        Número de
                                         Teléfono - Correos</p>
                                     @php
                                         $contactosAgrupados = $contactos->groupBy('categoria_id');
-                                    @endphp   
-                                    
-                                    
-                                        @foreach($contactosAgrupados as $categoria_id => $contactos)
-                                            <div><h2 class="font-roboto font-semibold text-lg text-[#082252] mb-1">{{ $contactos->first()->categoria->name }}</h2></div>
-                                            @foreach($contactos as $contacto)
-                                                <div><span class="font-roboto font-semibold text-base text-[#082252] normal-case">
-                                                {{$contacto->nombre}}</span>: 
-                                                <span class="font-roboto text-text14 text-[#082252] font-normal">{{$contacto->celular}}</span> /
-                                                <span class="font-roboto text-text14 text-[#082252] font-normal">{{$contacto->email}}</span>
-                                                </div>
-                                            @endforeach
-                                            <div class="mb-3"></div>
+                                    @endphp
+
+
+                                    @foreach ($contactosAgrupados as $categoria_id => $contactos)
+                                        <div>
+                                            <h2 class="font-roboto font-semibold text-lg text-[#082252] mb-1">
+                                                {{ $contactos->first()->categoria->name }}</h2>
+                                        </div>
+                                        @foreach ($contactos as $contacto)
+                                            <div><span
+                                                    class="font-roboto font-semibold text-base text-[#082252] normal-case">
+                                                    {{ $contacto->nombre }}</span>:
+                                                <span
+                                                    class="font-roboto text-text14 text-[#082252] font-normal">{{ $contacto->celular }}</span>
+                                                /
+                                                <span
+                                                    class="font-roboto text-text14 text-[#082252] font-normal">{{ $contacto->email }}</span>
+                                            </div>
                                         @endforeach
-                                    </div>
+                                        <div class="mb-3"></div>
+                                    @endforeach
                                 </div>
                             </div>
+                        </div>
 
-                            {{-- <div class="flex gap-2">
+                        <div class="flex gap-2">
                                 <div>
                                     <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -516,34 +733,34 @@
                                       
                                     </p>
                                 </div>
-                            </div> --}}
+                            </div>
 
-                            <div class="flex gap-2">
-                                <div>
-                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M14.3088 16.0737C14.8327 16.2483 15.399 15.9652 15.5737 15.4412C15.7483 14.9173 15.4652 14.351 14.9412 14.1763L14.3088 16.0737ZM11.25 14H10.25C10.25 14.4304 10.5254 14.8126 10.9338 14.9487L11.25 14ZM12.25 9.29587C12.25 8.74358 11.8023 8.29587 11.25 8.29587C10.6977 8.29587 10.25 8.74358 10.25 9.29587H12.25ZM19.25 12.875C19.25 13.4273 19.6977 13.875 20.25 13.875C20.8023 13.875 21.25 13.4273 21.25 12.875H19.25ZM19.9116 17.8757C20.1881 17.3977 20.0247 16.7859 19.5467 16.5094C19.0686 16.2329 18.4569 16.3962 18.1804 16.8743L19.9116 17.8757ZM18.4882 11.1802C18.0976 10.7897 17.4645 10.7897 17.0739 11.1802C16.6834 11.5708 16.6834 12.2039 17.0739 12.5945L18.4882 11.1802ZM20.0311 14.1373L19.3239 14.8445C19.7145 15.235 20.3476 15.235 20.7382 14.8445L20.0311 14.1373ZM22.9882 12.5945C23.3787 12.2039 23.3787 11.5708 22.9882 11.1802C22.5976 10.7897 21.9645 10.7897 21.5739 11.1802L22.9882 12.5945ZM14.9412 14.1763L11.5662 13.0513L10.9338 14.9487L14.3088 16.0737L14.9412 14.1763ZM12.25 14V9.29587H10.25V14H12.25ZM11.25 20.875C6.83172 20.875 3.25 17.2933 3.25 12.875H1.25C1.25 18.3978 5.72715 22.875 11.25 22.875V20.875ZM3.25 12.875C3.25 8.45672 6.83172 4.875 11.25 4.875V2.875C5.72715 2.875 1.25 7.35215 1.25 12.875H3.25ZM11.25 4.875C15.6683 4.875 19.25 8.45672 19.25 12.875H21.25C21.25 7.35215 16.7728 2.875 11.25 2.875V4.875ZM18.1804 16.8743C16.7956 19.2681 14.2099 20.875 11.25 20.875V22.875C14.9527 22.875 18.184 20.8621 19.9116 17.8757L18.1804 16.8743ZM17.0739 12.5945L19.3239 14.8445L20.7382 13.4302L18.4882 11.1802L17.0739 12.5945ZM20.7382 14.8445L22.9882 12.5945L21.5739 11.1802L19.3239 13.4302L20.7382 14.8445Z"
-                                            fill="#FF5E14" class="h-7 w-7 fill-fillAzul md:fill-fillNaranja" />
-                                    </svg>
+                        <div class="flex gap-2">
+                            <div>
+                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14.3088 16.0737C14.8327 16.2483 15.399 15.9652 15.5737 15.4412C15.7483 14.9173 15.4652 14.351 14.9412 14.1763L14.3088 16.0737ZM11.25 14H10.25C10.25 14.4304 10.5254 14.8126 10.9338 14.9487L11.25 14ZM12.25 9.29587C12.25 8.74358 11.8023 8.29587 11.25 8.29587C10.6977 8.29587 10.25 8.74358 10.25 9.29587H12.25ZM19.25 12.875C19.25 13.4273 19.6977 13.875 20.25 13.875C20.8023 13.875 21.25 13.4273 21.25 12.875H19.25ZM19.9116 17.8757C20.1881 17.3977 20.0247 16.7859 19.5467 16.5094C19.0686 16.2329 18.4569 16.3962 18.1804 16.8743L19.9116 17.8757ZM18.4882 11.1802C18.0976 10.7897 17.4645 10.7897 17.0739 11.1802C16.6834 11.5708 16.6834 12.2039 17.0739 12.5945L18.4882 11.1802ZM20.0311 14.1373L19.3239 14.8445C19.7145 15.235 20.3476 15.235 20.7382 14.8445L20.0311 14.1373ZM22.9882 12.5945C23.3787 12.2039 23.3787 11.5708 22.9882 11.1802C22.5976 10.7897 21.9645 10.7897 21.5739 11.1802L22.9882 12.5945ZM14.9412 14.1763L11.5662 13.0513L10.9338 14.9487L14.3088 16.0737L14.9412 14.1763ZM12.25 14V9.29587H10.25V14H12.25ZM11.25 20.875C6.83172 20.875 3.25 17.2933 3.25 12.875H1.25C1.25 18.3978 5.72715 22.875 11.25 22.875V20.875ZM3.25 12.875C3.25 8.45672 6.83172 4.875 11.25 4.875V2.875C5.72715 2.875 1.25 7.35215 1.25 12.875H3.25ZM11.25 4.875C15.6683 4.875 19.25 8.45672 19.25 12.875H21.25C21.25 7.35215 16.7728 2.875 11.25 2.875V4.875ZM18.1804 16.8743C16.7956 19.2681 14.2099 20.875 11.25 20.875V22.875C14.9527 22.875 18.184 20.8621 19.9116 17.8757L18.1804 16.8743ZM17.0739 12.5945L19.3239 14.8445L20.7382 13.4302L18.4882 11.1802L17.0739 12.5945ZM20.7382 14.8445L22.9882 12.5945L21.5739 11.1802L19.3239 13.4302L20.7382 14.8445Z"
+                                        fill="#FF5E14" class="h-7 w-7 fill-fillAzul md:fill-fillNaranja" />
+                                </svg>
 
-                                </div>
-                                <div class="flex flex-col gap-1">
-                                    <p class="font-semibold text-[#082252] font-roboto text-text18 leading-none">Horario de
-                                        Atención</p>
-                                    <p class="font-roboto text-text14 text-[#082252] font-normal">
-                                        @foreach (explode(',', $general[0]->schedule) as $item)
-                                            {{ $item }}<br>
-                                        @endforeach
-                                    </p>
-                                </div>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <p class="font-semibold text-[#082252] font-roboto text-text18 leading-none">Horario de
+                                    Atención</p>
+                                <p class="font-roboto text-text14 text-[#082252] font-normal">
+                                    @foreach (explode(',', $general[0]->schedule) as $item)
+                                        {{ $item }}<br>
+                                    @endforeach
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            </div>
 
-        </section>
+        </section> --}}
     </main>
 
 
@@ -605,13 +822,14 @@
 
         var swiper = new Swiper(".slider_productos", {
             slidesPerView: 1,
-            spaceBetween: 30,
+            spaceBetween: 100,
             centeredSlides: false,
             initialSlide: 0,
             grabCursor: true,
+            allowSlideNext: false,
             loop: true,
-             autoplay: {
-                delay: 2000, 
+            autoplay: {
+                delay: 2000,
                 disableOnInteraction: true,
             },
             pagination: {
