@@ -19,7 +19,7 @@ class EmailConfig
         $mail->Port = 465;
         $mail->Subject = '' . $name . ', ' . $mensaje;
         $mail->CharSet = 'UTF-8';
-        $mail->setFrom('diegomartinez1996x@gmail.com', 'HPI');
+        $mail->setFrom('diegomartinez1996x@gmail.com', 'Alzamora Asociados');
         return $mail;
     }
 }

@@ -2,7 +2,7 @@
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
         
         <section class="py-4 border-b border-slate-100 dark:border-slate-700">
-            <a href="{{ route('blog.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-sm" >Crear post</a>
+            <a href="{{ route('blog.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-sm" >Crear servicio</a>
         </section>
 
 
@@ -21,7 +21,7 @@
                         <thead>
                             <tr>
                                 <th>Titulo</th>
-                                <th>Categoría</th>
+                                {{-- <th>Categoría</th> --}}
                                 <th>Imagen</th>
                                 <th>Visible</th>
                                 <th>Acciones</th>
@@ -32,7 +32,7 @@
                             @foreach($posts as $item)
                                 <tr>
                                     <td>{{$item->title}}</td>
-                                    <td>{{$item->categories->name}}</td>
+                                    {{-- <td>{{$item->categories->name}}</td> --}}
                                     <td class="px-3 py-2"><img class="w-20" src="{{ asset($item->url_image.$item->name_image) }}" alt=""></td>
                                     <td>
                                         <form method="POST" action="">
@@ -68,7 +68,7 @@
                         <tfoot>
                             <tr>
                                 <th>Titulo</th>
-                                <th>Categoría</th>
+                                {{-- <th>Categoría</th> --}}
                                 <th>Imagen</th>
                                 <th>Visible</th>
                                 <th>Acciones</th>

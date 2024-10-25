@@ -1,6 +1,6 @@
 <x-app-layout title="Editar General">
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-        <form action="{{ route('datosgenerales.update', $general->id) }}" method="POST">
+        <form action="{{ route('datosgenerales.update', $general->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div
@@ -242,7 +242,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="md:col-span-5">
+                                                    {{-- <div class="md:col-span-5">
                                                         <div class="grid grid-cols-1 gap-5">
                                                             <div class="mt-2">
                                                                 <div class=" flex items-end justify-between gap-2 ">
@@ -373,7 +373,7 @@
                                                             @endforeach    
                                                             </div>       
                                                        </div>
-                                                    </div>
+                                                    </div> --}}
 
 
                                                     <div class="md:col-span-2">
@@ -398,6 +398,7 @@
                                                                 placeholder="Nombre de soporte 1">
                                                         </div>
                                                     </div>
+
                                                     <div class="md:col-span-3">
                                                         <label for="whatsapp">Whatsapp de soporte 1 (sin
                                                             guiones)</label>
@@ -422,7 +423,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="md:col-span-2">
+                                                    {{-- <div class="md:col-span-2">
                                                         <label for="support_two">Nombre de soporte 2</label>
                                                         <div class="relative mb-2">
                                                             <div
@@ -444,6 +445,7 @@
                                                                 placeholder="Nombre de soporte 2">
                                                         </div>
                                                     </div>
+
                                                     <div class="md:col-span-3">
                                                         <label for="whatsapp">Whatsapp de soporte 2 (sin
                                                             guiones)</label>
@@ -466,7 +468,7 @@
                                                                 class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                                 placeholder="+51987654321">
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
 
                                                     <div class="md:col-span-5">
@@ -594,7 +596,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div>
+                                                            {{-- <div>
 
                                                                 <div class="relative">
                                                                     <div
@@ -616,7 +618,7 @@
                                                                         class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                                         placeholder="Twitter">
                                                                 </div>
-                                                            </div>
+                                                            </div> --}}
 
                                                             <div>
                                                                 <div class="relative ">
@@ -677,51 +679,211 @@
                                                                 value="{!! $general->aboutus !!}" />
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="md:col-span-2">
-                                            <label for="city">City</label>
-                                            <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                                        </div> -->
+
+                                                    <h2
+                                                        class="md:col-span-5 text-lg font-semibold text-slate-800 mt-2 dark:text-white">
+                                                        Textos de Página de Inicio</h2>
+
+                                                    <div class="md:col-span-5">
+                                                        <label for="sloganportada">Titulo para la portada</label>
+                                                        <div class="relative mb-2">
+                                                            <div
+                                                                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                                                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                                                                    fill="currentColor" viewBox="0 0 20 20"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z">
+                                                                    </path>
+                                                                </svg>
+                                                            </div>
+                                                            <input type="text" id="tituloportada"
+                                                                name="tituloportada"
+                                                                value="{{ $general->tituloportada }}"
+                                                                class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                placeholder="Titulo para la portada">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="md:col-span-5">
+                                                        <label for="tituloestadisticas">Titulo para estadísticas</label>
+                                                        <div class="relative mb-2">
+                                                            <div
+                                                                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                                                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                                                                    fill="currentColor" viewBox="0 0 20 20"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z">
+                                                                    </path>
+                                                                </svg>
+                                                            </div>
+                                                            <input type="text" id="tituloestadisticas"
+                                                                name="tituloestadisticas"
+                                                                value="{{ $general->tituloestadisticas }}"
+                                                                class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                placeholder="Titulo para estadísticas">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="md:col-span-5">
+                                                        <label for="descripcionestadisticas">Descripción para estadisticas</label>
+                                                        <div class="relative mb-2">
+                                                            <x-textarea name="descripcionestadisticas"
+                                                                value="{!! $general->descripcionestadisticas !!}" />
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="md:col-span-5">
+                                                        <label for="tituloservicios">Titulo para servicios</label>
+                                                        <div class="relative mb-2">
+                                                            <div
+                                                                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                                                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                                                                    fill="currentColor" viewBox="0 0 20 20"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z">
+                                                                    </path>
+                                                                </svg>
+                                                            </div>
+                                                            <input type="text" id="tituloservicios"
+                                                                name="tituloservicios"
+                                                                value="{{ $general->tituloservicios }}"
+                                                                class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                placeholder="Titulo para servicios">
+                                                        </div>
+                                                    </div>
+
+                                                     <div class="md:col-span-5">
+                                                        <label for="descripcionservicios">Descripción para servicios</label>
+                                                        <div class="relative mb-2">
+                                                            <x-textarea name="descripcionservicios"
+                                                                value="{!! $general->descripcionservicios !!}" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="md:col-span-5">
+                                                        <label for="titulotestimonios">Titulo para testimonios</label>
+                                                        <div class="relative mb-2">
+                                                            <div
+                                                                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                                                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                                                                    fill="currentColor" viewBox="0 0 20 20"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z">
+                                                                    </path>
+                                                                </svg>
+                                                            </div>
+                                                            <input type="text" id="titulotestimonios"
+                                                                name="titulotestimonios"
+                                                                value="{{ $general->titulotestimonios }}"
+                                                                class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                placeholder="Titulo para servicios">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="md:col-span-5">
+                                                        <label for="tituloserviciosdetalle">Titulo para detalle de servicio</label>
+                                                        <div class="relative mb-2">
+                                                            <div
+                                                                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                                                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                                                                    fill="currentColor" viewBox="0 0 20 20"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z">
+                                                                    </path>
+                                                                </svg>
+                                                            </div>
+                                                            <input type="text" id="tituloserviciosdetalle"
+                                                                name="tituloserviciosdetalle"
+                                                                value="{{ $general->tituloserviciosdetalle }}"
+                                                                class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                placeholder="Titulo para servicios">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="md:col-span-5">
+                                                        <label for="descripcionserviciosdetalle">Descripción para detalle servicio</label>
+                                                        <div class="relative mb-2">
+                                                            <x-textarea name="descripcionserviciosdetalle"
+                                                                value="{!! $general->descripcionserviciosdetalle !!}" />
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="md:col-span-5">
+                                                        <label for="imagen">Nueva imagen principal</label>
+                                                        <div class="relative mb-2  mt-2">
+                                                            <input id="imagen" name="imagen"
+                                                                class="p-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                                                aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                                                        </div>
+                                                    </div>
 
                                                     <!-- <div class="md:col-span-2">
-                                            <label for="country">Country / region</label>
-                                            <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                                            <input name="country" id="country" placeholder="Country" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                                            <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                                                <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                                                </svg>
-                                            </button>
-                                            <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                                                <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                            </button>
-                                            </div>
-                                        </div> -->
+                                                        <label for="city">City</label>
+                                                        <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                                    </div> -->
 
                                                     <!-- <div class="md:col-span-2">
-                                            <label for="state">State / province</label>
-                                            <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                                            <input name="state" id="state" placeholder="State" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                                            <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                                                <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                                                </svg>
-                                            </button>
-                                            <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                                                <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                            </button>
-                                            </div>
-                                        </div> -->
+                                                        <label for="country">Country / region</label>
+                                                        <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                                                        <input name="country" id="country" placeholder="Country" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                                                        <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
+                                                            <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                                                            </svg>
+                                                        </button>
+                                                        <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
+                                                            <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                                                        </button>
+                                                        </div>
+                                                    </div> -->
+
+                                                    <!-- <div class="md:col-span-2">
+                                                        <label for="state">State / province</label>
+                                                        <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                                                        <input name="state" id="state" placeholder="State" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                                                        <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
+                                                            <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                                                            </svg>
+                                                        </button>
+                                                        <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
+                                                            <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                                                        </button>
+                                                        </div>
+                                                    </div> -->
 
 
                                                 
                                                     <!-- <div class="md:col-span-5">
-                                            <div class="inline-flex items-center">
-                                            <input type="checkbox" name="billing_same" id="billing_same" class="form-checkbox" />
-                                            <label for="billing_same" class="ml-2">My billing address is different than above.</label>
-                                            </div>
-                                        </div> -->
+                                                        <div class="inline-flex items-center">
+                                                        <input type="checkbox" name="billing_same" id="billing_same" class="form-checkbox" />
+                                                        <label for="billing_same" class="ml-2">My billing address is different than above.</label>
+                                                        </div>
+                                                    </div> -->
 
                                                     <div class="md:col-span-5 text-right mt-6">
                                                         <div class="inline-flex items-end">

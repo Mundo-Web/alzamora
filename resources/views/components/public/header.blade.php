@@ -1,13 +1,13 @@
-<header class="sticky top-0 right-0 z-[200] bg-black">
+<header id="main-header" class="sticky top-0 right-0 z-[200]  {{ isset($pagina) && $pagina == 'index' ? 'bg-transparent' : 'bg-white' }} h-[96px]">
 
   <div>
    
     <div class="flex justify-between w-11/12 md:w-10/12 mx-auto">
       
-      <nav class="flex h-24 items-center justify-between gap-10 w-full">
+      <nav class="flex h-24 items-center justify-center lg:justify-between gap-10 w-full">
         <input type="checkbox" id="menu" class="peer/menu menu hidden" />
         <label for="menu"
-          class="transition-all flex flex-col gap-1 z-40 lg:hidden hamburguesa justify-center items-center order-3 lg:order-3">
+          class=" transition-all  flex-col gap-1 z-40 hidden hamburguesa justify-center items-center order-3 lg:order-3">
           <p class="w-7 h-1 bg-white transition-transform duration-500"></p>
           <p class="w-7 h-1 bg-white transition-transform duration-500"></p>
           <p class="w-7 h-1 bg-white transition-transform duration-500"></p>
@@ -15,44 +15,44 @@
 
         <div class="flex justify-center items-center z-40">
           <a href="{{ route('index') }}">
-            <img src="{{ asset('images/svg/logoalzamora.svg') }}" alt="Alzamora" class="w-60">
+            <img id="logo-image"  src="{{ isset($pagina) && $pagina == 'index' ? asset('images/svg/logoalzamora.svg') : asset('images/svg/logoalzamorawhite.svg') }}" alt="Alzamora" class="w-60">
           </a>
         </div>
 
-        <div
-          class="fixed inset-0 bg-white px-[5%] flex flex-col lg:flex-row lg:items-center pt-40 clip-circle-0 peer-checked/menu:clip-circle-full transition-[clip-path] duration-500 gap-5 lg:gap-10 lg:clip-circle-full lg:relative lg:flex lg:justify-items-center lg:p-0 lg:bg-transparent font-roboto font-bold lg:font-normal text-lg lg:text-[19px] text-white">
+        <div 
+          class="fixed inset-0 {{ isset($pagina) && $pagina == 'index' ? 'text-white' : 'text-black' }}  bg-white px-[5%] flex flex-col lg:flex-row lg:items-center pt-40 clip-circle-0 peer-checked/menu:clip-circle-full transition-[clip-path] duration-500 gap-5 lg:gap-10 lg:clip-circle-full lg:relative lg:flex lg:justify-items-center lg:p-0 lg:bg-transparent font-PreloSemibold font-bold lg:font-normal text-lg lg:text-[19px] ">
 
-          <div class="flex flex-col lg:flex-row order-2 lg:order-1 items-center lg:w-full lg:justify-center gap-5 lg:gap-10 xl:gap-14 uppercase text-base">
+          <div id="menunav" class="flex flex-col lg:flex-row order-2 lg:order-1 items-center lg:w-full lg:justify-center gap-5 lg:gap-10 xl:gap-14 uppercase text-base">
             <li class="flex flex-col">
-              <a href="{{ route('index') }}"
+              <a href="{{route('index').'#servicios'}}"
                 class="{{ isset($pagina) && $pagina == 'index' ? 'font-semibold' : '' }}">Servicios</a>
-              @if (isset($pagina) && $pagina == 'index')
+              {{-- @if (isset($pagina) && $pagina == 'index')
                 <p
                   class="hidden lg:block lg:after:content-[''] lg:after:w-full lg:after:h-[1px] lg:after:bg-white lg:after:block">
                 </p>
-              @endif
+              @endif --}}
             </li>
             <li class="flex flex-col">
-              <a href="{{ route('nosotros') }}"
+              <a href="{{route('index').'#about'}}"
                 class="{{ isset($pagina) && $pagina == 'nosotros' ? 'font-semibold' : '' }}">Nosotros</a>
-              @if (isset($pagina) && $pagina == 'nosotros')
+              {{-- @if (isset($pagina) && $pagina == 'nosotros')
                 <p
                   class="hidden lg:block lg:after:content-[''] lg:after:w-full lg:after:h-[1px] lg:after:bg-white lg:after:block">
                 </p>
-              @endif
+              @endif --}}
             </li> 
             <li class="flex flex-col">
-              <a href="{{ route('contacto') }}"
+              <a href="{{route('index').'#contacto'}}"
                 class="{{ isset($pagina) && $pagina == 'contacto' ? 'font-semibold' : '' }}">Contacto</a>
-              @if (isset($pagina) && $pagina == 'contacto')
+              {{-- @if (isset($pagina) && $pagina == 'contacto')
                 <p
                   class="hidden lg:block lg:after:content-[''] lg:after:w-full lg:after:h-[1px] lg:after:bg-white lg:after:block">
                 </p>
-              @endif
+              @endif --}}
             </li>
              <li class="flex flex-col">
-              <a href="{{ route('contacto') }}"
-                class="uppercase text-black bg-white text-base px-4 py-2 font-bold">Cotizar ahora</a>
+              <a target="_blank" href="https://api.whatsapp.com/send?phone={{ $general[0]->whatsapp }}&text={{ $general[0]->mensaje_whatsapp }}" id="botoncotizar"
+                class="uppercase text-black  text-base px-4 py-2 font-bold {{ isset($pagina) && $pagina == 'index' ? 'bg-white text-black' : 'bg-black text-white' }}">Cotizar ahora</a>
             </li>
           </div>
           
@@ -67,15 +67,15 @@
   {{-- href="https://api.whatsapp.com/send?phone={{ $general[0]->whatsapp2 }}&text={{ $general[0]->mensaje_whatsapp }}"   --}}
   {{-- href="https://api.whatsapp.com/send?phone={{ $general[0]->whatsapp }}&text={{ $general[0]->mensaje_whatsapp }}" --}}
   {{-- whatssapp --}}
-  {{-- <div class="flex justify-end w-11/12 mx-auto z-[100] relative">
-    <div class="fixed bottom-6 sm:bottom-[2rem] lg:bottom-[4rem] z-20 cursor-pointer">
+  <div class="flex justify-end w-full mx-auto z-[100] relative">
+    <div class="fixed bottom-6 right-4 sm:bottom-16 lg:bottom-20 z-20 cursor-pointer">
       <a target="_blank" id="whatsapp-toggle" 
         href="https://api.whatsapp.com/send?phone={{ $general[0]->whatsapp }}&text={{ $general[0]->mensaje_whatsapp }}"
          >
-        <img src="{{ asset('images/svg/image_31.svg') }}" alt="whatsapp" class="w-16 h-16 md:w-24 md:h-24">
+        <img src="{{ asset('images/svg/wsp.svg') }}" alt="whatsapp" class="w-16 h-16 md:w-20 md:h-20">
       </a>
     </div>
-  </div> --}}
+  </div>
 
 </header>
 
@@ -218,4 +218,6 @@
           $('#resultados2').empty();
       }
   });
+
+  
 </script>

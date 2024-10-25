@@ -5,129 +5,124 @@
         overflow-y: auto;
         /* Permite el desplazamiento vertical si el contenido excede la altura del modal */
     }
+    .prose{
+        max-width: 100%!important;
+    }
 </style>
-<footer class="bg-[#082252]">
+<footer class="bg-[#1C1C1A]">
     <div class="grid grid-cols-1 md:grid-cols-2 w-11/12 mx-auto py-10 gap-10 md:gap-5">
         <div class="w-full md:max-w-[500px] flex flex-col gap-5" data-aos="fade-up" data-aos-offset="150">
             <a href="{{ route('index') }}">
-                <img src="{{ asset('images/svg/logohpifooter.svg') }}" alt="HPI" class="w-[150px]" />
+                <img src="{{ asset('images/svg/logoalzamora.svg') }}" alt="HPI" class="w-[250px]" />
             </a>
-            <p class="text-white font-roboto font-normal text-text16">
-                Únase a nuestro boletín para mantenerse actualizado sobre funciones y lanzamientos.
-            </p>
 
-            <div class="flex flex-col gap-2" data-aos="fade-up" data-aos-offset="150">
-                <form id="footerFormulario" class="flex flex-col md:flex-row md:justify-start md:items-center gap-5">
-                    @csrf
-                    <div class="w-full">
-                        <input required name="email" id="emailFooter" placeholder="Dejanos tu email" type="email"
-                            class="bg-white px-5 py-3 rounded-xl w-full" />
-                        <input type="hidden" id="nameFooter" required name="full_name" value="Usuario suscrito" />
-                        <input type="hidden" id="tipo" placeholder="tipo" name="tipo_message"
-                            value="Inscripción" />
-                    </div>
+            <div class="text-white font-PreloMedium text-base max-w-sm">
+               {{ $general[0]->aboutus }}
+            </div>
 
-                    <div class="flex justify-center items-center w-full md:w-auto">
-                        <button type="submit"
-                            class="font-roboto font-semibold text-text16 text-white border border-white py-3 px-6 rounded-xl w-full md:w-auto text-center">subscríbete
-                        </button>
-                    </div>
-                </form>
-                <p class="font-roboto font-normal text-text12 text-white">
-                    Al suscribirse, acepta nuestra <a id="linkPoliticas" target="_blank" class="underline cursor-pointer">Política de
-                        privacidad</a> y brinda su consentimiento para recibir
-                    actualizaciones de nuestra empresa.
-                </p>
+            <div class="mt-3">
+                <a target="_blank" href="https://api.whatsapp.com/send?phone={{ $general[0]->whatsapp }}&text={{ $general[0]->mensaje_whatsapp }}"
+                    class="px-6 py-3 mt-10 text-base leading-tight uppercase bg-neutral-100 text-stone-900 max-md:px-5 font-PreloBold"
+                    tabindex="0">
+                    Solicitar información
+                </a>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-5 justify-end items-end">
-            <div></div>
-            <div></div>
-            <div class="flex flex-col gap-5" data-aos="fade-up" data-aos-offset="150">
-                <p class="font-roboto font-semibold text-text16 text-white">Síganos</p>
+        <div class="grid grid-cols-1 lg:grid-cols-7 gap-10 md:gap-5 justify-start items-start">
 
-                <div class="flex flex-col gap-5">
-                    @if ($general[0]->facebook)
-                        <a href="{{ $general[0]->facebook }}" target="_blank"
-                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
-                            <img src="{{ asset('images/svg/image_2.svg') }}" alt="facebook" />
-                            <span>Facebook</span>
-                        </a>
-                    @endif
-                    @if ($general[0]->instagram)
-                        <a href="{{ $general[0]->instagram }}" target="_blank"
-                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
-                            <img src="{{ asset('images/svg/image_3.svg') }}" alt="instagram" />
-                            <span>Instagram</span>
-                        </a>
-                    @endif
-                    @if ($general[0]->twitter)
-                        <a href="{{ $general[0]->twitter }}" target="_blank"
-                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
-                            <img src="{{ asset('images/svg/image_4.svg') }}" alt="twitter" />
-                            <span>Twitter</span>
-                        </a>
-                    @endif
-                    @if ($general[0]->linkedin)
-                        <a href="{{ $general[0]->linkedin }}" target="_blank"
-                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
-                            <img src="{{ asset('images/svg/image_5.svg') }}" alt="linkedin" />
-                            <span>Linkedin</span>
-                        </a>
-                    @endif
-                    @if ($general[0]->youtube)
-                        <a href="{{ $general[0]->youtube }}" target="_blank"
-                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
-                            <img src="{{ asset('images/svg/image_6.svg') }}" alt="youtube" />
-                            <span>YouTube</span>
-                        </a>
-                    @endif
-                    @if ($general[0]->tiktok)
-                        <a href="{{ $general[0]->tiktok }}" target="_blank"
-                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
-                            <img src="{{ asset('images/svg/image_tiktok.svg') }}" alt="tiktok" />
-                            <span>Tik Tok</span>
-                        </a>
-                    @endif
+            <div class="flex flex-col gap-5 col-span-2">
+                <p class="font-PreloSemibold uppercase text-white text-lg">
+                   ENLACES
+                </p>
+                <div class="flex flex-col gap-3 text-[#A7A6A1] font-PreloMedium text-base">
+                    <a href="{{ route('index', 0) }}">Inicio</a>
+                    <a href="{{route('index').'#servicios'}}">Servicios</a>
+                    <a href="{{route('index').'#about'}}">Nosotros</a>
+                    <a href="{{route('index').'#contacto'}}">Contacto</a>
                 </div>
             </div>
+
+
+            <div class="flex flex-col gap-5 col-span-3">
+                <p class="font-PreloSemibold uppercase text-white text-lg">
+                   DATOS DE CONTACTO
+                </p>
+                <div class="flex flex-col gap-3 text-[#A7A6A1] font-PreloMedium text-base">
+                    <a>{{ $general[0]->address }}, {{ $general[0]->inside }},
+                                        {{ $general[0]->district }} - {{ $general[0]->city }}</a>
+                    <a>Correo Electrónico: <br> {{ $general[0]->email }}</a> 
+                    <a>Teléfono: {{ $general[0]->office_phone }}</a>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col gap-5 col-span-2">
+                <p class="font-PreloSemibold uppercase text-white text-lg">
+                   AVISO LEGAL
+                </p>
+                <div class="flex flex-col gap-3 text-[#A7A6A1] font-PreloMedium text-base">
+                    <a class="cursor-pointer" id="linkPoliticas">Política de Privacidad</a>
+                    <a class="cursor-pointer" id="linkTerminos">Términos y Condiciones</a>
+                </div>
+            </div>
+ 
         </div>
     </div>
 
     <div
         class="flex flex-col items-start gap-3 md:flex-row md:justify-between md:items-center w-11/12 mx-auto py-10 border-t border-white">
-        <a href="#" target="_blank" class="text-white font-roboto font-normal text-text14">&copy; 2024 Mundo Web.
+        <a href="#" target="_blank" class="text-white font-PreloMedium font-normal text-text14">&copy; 2024 Alzamora Asociados.
             Reservados todos los derechos</a>
         <div class="flex justify-start items-center gap-5">
-            {{-- <a
-          href="#"
-          target="_blank"
-          class="underline text-white font-roboto font-normal text-text14"
-          >Política de privacidad</a
-        >
-        <a
-          href="#"
-          target="_blank"
-          class="underline text-white font-roboto font-normal text-text14"
-          >Terminos de servicio</a
-        > --}}
+           <div class="flex flex-row gap-2">
+                    @if ($general[0]->facebook)
+                        <a href="{{ $general[0]->facebook }}" target="_blank"
+                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
+                            <img class="w-10 h-10" src="{{ asset('images/svg/facebook.svg') }}" alt="facebook" />
+                        </a>
+                    @endif
+                    @if ($general[0]->instagram)
+                        <a href="{{ $general[0]->instagram }}" target="_blank"
+                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
+                            <img class="w-10 h-10" src="{{ asset('images/svg/instagram.svg') }}" alt="instagram" /> 
+                        </a>
+                    @endif
+                    @if ($general[0]->linkedin)
+                        <a href="{{ $general[0]->linkedin }}" target="_blank"
+                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
+                            <img class="w-10 h-10" src="{{ asset('images/svg/linkedin.svg') }}" alt="linkedin" />
+                        </a>
+                    @endif
+                    {{-- @if ($general[0]->youtube)
+                        <a href="{{ $general[0]->youtube }}" target="_blank"
+                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
+                            <img class="w-10 h-10" src="{{ asset('images/svg/whatsapp.svg') }}" alt="youtube" />
+                        </a>
+                    @endif --}}
+                    @if ($general[0]->tiktok)
+                        <a href="{{ $general[0]->tiktok }}" target="_blank"
+                            class="flex justify-start items-center gap-2 text-white font-roboto font-normal text-text14">
+                            <img class="w-10 h-10" src="{{ asset('images/svg/tiktok.svg') }}" alt="tiktok" />
+                        </a>
+                    @endif
+            </div>
         </div>
     </div>
 
-    <div id="modalTerminosCondiciones" class="modal" style="max-width: 900px !important;width: 100% !important;  ">
+    <div id="modalTerminosCondiciones" class="modal !px-0" style="max-width: 900px !important; width: 100% !important;">
         <!-- Modal body -->
-        <div class="p-4 ">
-            <h1 class="font-boldDisplay">Terminos y condiciones</h1>
-            <p class="font-Inter_Regular p-2 prose">{!! $terminos->content ?? '' !!}</p>
+        <div class="p-4">
+            <h1 class="font-PreloBold text-center text-4xl">Términos y condiciones</h1>
+            <div class="font-PreloMedium p-2">{!! $termsAndCondicitions->content ?? '' !!}</div>
         </div>
     </div>
 
-    <div id="modalPoliticasDev" class="modal" style="max-width: 900px !important; width: 100% !important;  ">
+    <div id="modalPoliticasDev" class="modal !px-0" style="max-width: 900px !important; width: 100% !important;">
         <!-- Modal body -->
-        <div class="p-4 ">
-            <h1 class="font-boldDisplay text-2xl">Politicas de privacidad</h1>
-            <p class="font-Inter_Regular p-2">{!! $politicDev->content ?? '' !!}</p>
+        <div class="p-4">
+            <h1 class="font-PreloBold text-center text-4xl">Políticas de privacidad</h1>
+            <div class="font-PreloMedium p-2">{!! $politicDev->content ?? '' !!}</div>
         </div>
     </div>
 

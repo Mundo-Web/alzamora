@@ -33,7 +33,7 @@
                                 <tr>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->ocupation}}</td>
-                                    <td>{{$item->testimonie}}</td>
+                                    <td>{{ \Illuminate\Support\Str::limit($item->testimonie, 100, '...') }}</td>
                                     <td>
                                         <form method="POST" action="">
                                           @csrf

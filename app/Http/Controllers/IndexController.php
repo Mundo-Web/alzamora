@@ -38,6 +38,7 @@ use App\Models\MisMarcas;
 use App\Models\Certificados;
 use App\Models\ContactDetail;
 use App\Models\PolyticsCondition;
+use App\Models\Service;
 use App\Models\TermsAndCondition;
 use Attribute;
 use Illuminate\Http\Request;
@@ -640,11 +641,13 @@ class IndexController extends Controller
     public function detalleBlog($id)
     {
         $post = Blog::where('status', '=', 1)->where('visible', '=', 1)->where('id', '=', $id)->first();
+        $posts = Blog::where('status', '=', 1)->where('visible', '=', 1)->get();
         $meta_title = $post->meta_title ?? $post->title;
         $meta_description = $post->meta_description  ?? Str::limit($post->extract, 160);
         $meta_keywords = $post->meta_keywords ?? '';
+        $idactual = $id;
 
-        return view('public.post', compact('meta_title','meta_description','meta_keywords','post'));
+        return view('public.post', compact('meta_title','meta_description','meta_keywords','post','posts','idactual'));
     }
 
     public function catalogosDescargables($filtro)
@@ -958,7 +961,7 @@ class IndexController extends Controller
         $generales = General::first();
         // $name = $data['full_name'];
         $name = 'Administrador';
-        $mensaje = 'tienes un nuevo mensaje - HPI';
+        $mensaje = 'tienes un nuevo mensaje - Alzamora Asociados';
         $mail = EmailConfig::config($name, $mensaje);
         $emailadmin = $generales->email;
         $baseUrl = 'https://' . $_SERVER['HTTP_HOST'] . '/mail';
@@ -1054,12 +1057,12 @@ class IndexController extends Controller
                 '"
                 style="
                   text-decoration: none;
-                  background-color: #fdfefd;
-                  color: #254f9a;
+                  background-color: white;
+                  color: black;
                   padding: 16px 20px;
                   display: inline-flex;
                   justify-content: center;
-                  border-radius: 10px;
+                  border-radius: 0px;
                   align-items: center;
                   gap: 10px;
                   font-weight: 600;
@@ -1070,59 +1073,6 @@ class IndexController extends Controller
               >
                 <span>Visita nuestra web</span>
               </a>
-            </td>
-          </tr>
-          <tr style="margin-top: 300px">
-            <td>
-              <a
-                href="' .
-                htmlspecialchars($generales->facebook, ENT_QUOTES, 'UTF-8') .
-                '"
-                target="_blank"
-                style="padding: 0 5px 30px 0; display: inline-block"
-              >
-                <img src="'.$baseUrl .'/facebook.png" alt="facebook"
-              /></a>
-
-              <a
-                href="' .
-                htmlspecialchars($generales->instagram, ENT_QUOTES, 'UTF-8') .
-                '"
-                target="_blank"
-                style="padding: 0 5px 30px 0; display: inline-block"
-              >
-                <img src="'.$baseUrl .'/instagram.png" alt="instagram"
-              /></a>
-
-              <a
-                href="' .
-                htmlspecialchars($generales->twitter, ENT_QUOTES, 'UTF-8') .
-                '"
-                target="_blank"
-                style="padding: 0 5px 30px 0; display: inline-block"
-              >
-                <img src="'.$baseUrl .'/twitter.png" alt="twitter"
-              /></a>
-
-              <a
-                href="' .
-                htmlspecialchars($generales->linkedin, ENT_QUOTES, 'UTF-8') .
-                '"
-                target="_blank"
-                style="padding: 0 5px 30px 0; display: inline-block"
-              >
-                <img src="'.$baseUrl .'/linkedin.png" alt="linkedin"
-              /></a>
-
-              <a
-                href="' .
-                htmlspecialchars($generales->youtube, ENT_QUOTES, 'UTF-8') .
-                '"
-                target="_blank"
-                style="padding: 0 5px 30px 0; display: inline-block"
-              >
-                <img src=" '.$baseUrl .'/youtube.png" alt="youtube"
-              /></a>
             </td>
           </tr>
         </tbody>
@@ -1145,7 +1095,7 @@ class IndexController extends Controller
     { 
         $generales = General::first();
         $name = $data['full_name'];
-        $mensaje = 'Gracias por comunicarte - HPI';
+        $mensaje = 'Gracias por comunicarte - Alzamora Asociados';
         $mail = EmailConfig::config($name, $mensaje);
         $baseUrl = 'https://' . $_SERVER['HTTP_HOST'] . '/mail';
         $baseUrllink = 'https://' . $_SERVER['HTTP_HOST'] . '/';
@@ -1286,12 +1236,12 @@ class IndexController extends Controller
                 '"
                 style="
                   text-decoration: none;
-                  background-color: #fdfefd;
-                  color: #254f9a;
+                  background-color: white;
+                  color: black;
                   padding: 16px 20px;
                   display: inline-flex;
                   justify-content: center;
-                  border-radius: 10px;
+                  border-radius: 0px;
                   align-items: center;
                   gap: 10px;
                   font-weight: 600;
@@ -1302,59 +1252,6 @@ class IndexController extends Controller
               >
                 <span>Visita nuestra web</span>
               </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a
-                href="' .
-                htmlspecialchars($generales->facebook, ENT_QUOTES, 'UTF-8') .
-                '"
-                target="_blank"
-                style="padding: 0 5px 30px 0; display: inline-block"
-              >
-                <img src="'.$baseUrl .'/facebook.png" alt="facebook"
-              /></a>
-
-              <a
-                href="' .
-                htmlspecialchars($generales->instagram, ENT_QUOTES, 'UTF-8') .
-                '"
-                target="_blank"
-                style="padding: 0 5px 30px 0; display: inline-block"
-              >
-                <img src="'.$baseUrl .'/instagram.png" alt="instagram"
-              /></a>
-
-              <a
-                href="' .
-                htmlspecialchars($generales->twitter, ENT_QUOTES, 'UTF-8') .
-                '"
-                target="_blank"
-                style="padding: 0 5px 30px 0; display: inline-block"
-              >
-                <img src="'.$baseUrl .'/twitter.png" alt="twitter"
-              /></a>
-
-              <a
-                href="' .
-                htmlspecialchars($generales->linkedin, ENT_QUOTES, 'UTF-8') .
-                '"
-                target="_blank"
-                style="padding: 0 5px 30px 0; display: inline-block"
-              >
-                <img src="'.$baseUrl .'/linkedin.png" alt="linkedin"
-              /></a>
-
-              <a
-                href="' .
-                htmlspecialchars($generales->youtube, ENT_QUOTES, 'UTF-8') .
-                '"
-                target="_blank"
-                style="padding: 0 5px 30px 0; display: inline-block"
-              >
-                <img src=" '.$baseUrl .'/youtube.png" alt="youtube"
-              /></a>
             </td>
           </tr>
         </tbody>
@@ -1474,13 +1371,80 @@ class IndexController extends Controller
 
       {
         $politicDev = PolyticsCondition::first();
-        return view('public.politicasdeenvio', compact('politicDev'));
+        return view('public.policy', compact('politicDev'));
       }
 
       public function TerminosyCondiciones()
 
       {
         $termsAndCondicitions = TermsAndCondition::first();
-        return view('public.terminosycondiciones', compact('termsAndCondicitions'));
+        return view('public.terms', compact('termsAndCondicitions'));
       }
+
+
+      public function servicios($id)
+      { 
+
+        $servicios = Service::where('status', '=', 1)->where('visible', '=', 1)->where('id', '=', $id)->first();
+        $meta_title = $servicios->meta_title ?? '$servicio->title';
+        $meta_description = $servicios->meta_description  ?? 'Str::limit($servicio->extract, 160)';
+        $meta_keywords = $servicios->meta_keywords ?? '';
+
+        return view('public.servicios', compact('meta_title','meta_description','meta_keywords','servicios'));
+      }
+
+
+          // <tr style="margin-top: 300px">
+          //   <td>
+          //     <a
+          //       href="' .
+          //       htmlspecialchars($generales->facebook, ENT_QUOTES, 'UTF-8') .
+          //       '"
+          //       target="_blank"
+          //       style="padding: 0 5px 30px 0; display: inline-block"
+          //     >
+          //       <img src="'.$baseUrl .'/facebook.png" alt="facebook"
+          //     /></a>
+
+          //     <a
+          //       href="' .
+          //       htmlspecialchars($generales->instagram, ENT_QUOTES, 'UTF-8') .
+          //       '"
+          //       target="_blank"
+          //       style="padding: 0 5px 30px 0; display: inline-block"
+          //     >
+          //       <img src="'.$baseUrl .'/instagram.png" alt="instagram"
+          //     /></a>
+
+          //     <a
+          //       href="' .
+          //       htmlspecialchars($generales->twitter, ENT_QUOTES, 'UTF-8') .
+          //       '"
+          //       target="_blank"
+          //       style="padding: 0 5px 30px 0; display: inline-block"
+          //     >
+          //       <img src="'.$baseUrl .'/twitter.png" alt="twitter"
+          //     /></a>
+
+          //     <a
+          //       href="' .
+          //       htmlspecialchars($generales->linkedin, ENT_QUOTES, 'UTF-8') .
+          //       '"
+          //       target="_blank"
+          //       style="padding: 0 5px 30px 0; display: inline-block"
+          //     >
+          //       <img src="'.$baseUrl .'/linkedin.png" alt="linkedin"
+          //     /></a>
+
+          //     <a
+          //       href="' .
+          //       htmlspecialchars($generales->youtube, ENT_QUOTES, 'UTF-8') .
+          //       '"
+          //       target="_blank"
+          //       style="padding: 0 5px 30px 0; display: inline-block"
+          //     >
+          //       <img src=" '.$baseUrl .'/youtube.png" alt="youtube"
+          //     /></a>
+          //   </td>
+          // </tr>
 }

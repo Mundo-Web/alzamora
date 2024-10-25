@@ -36,6 +36,16 @@ return new class extends Migration
             $table->string('business_hours')->nullable();
             $table->string('mensaje_whatsapp')->nullable();
             $table->text('aboutus')->nullable();
+            $table->text('tituloportada')->nullable();
+            $table->text('tituloestadisticas')->nullable();
+            $table->text('descripcionestadisticas')->nullable();
+            $table->text('tituloservicios')->nullable();
+            $table->text('descripcionservicios')->nullable();
+            $table->text('titulotestimonios')->nullable();
+            $table->text('tituloserviciosdetalle')->nullable();
+            $table->text('descripcionserviciosdetalle')->nullable();
+            $table->string('imagenportada')->nullable();
+
 
             $table->timestamps();
         });

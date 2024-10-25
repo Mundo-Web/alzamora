@@ -8,7 +8,9 @@ use App\Models\Category;
 use App\Models\ContactDetail;
 use App\Models\General;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class GeneralController extends Controller
 {
@@ -69,10 +71,22 @@ class GeneralController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-    {
+    {       
             $detalleContacto = [];
             $general = General::findOrfail($id); 
             
+            if ($request->hasFile("imagen")) {
+              $file = $request->file('imagen');
+              $routeImg = 'storage/images/general/';
+              $nombreImagen = Str::random(10) . '_' . $file->getClientOriginalName();
+        
+              $this->saveImg($file, $routeImg, $nombreImagen);
+        
+              $general['imagenportada'] = $routeImg . $nombreImagen;
+             
+            } 
+
+
             foreach ($request->all() as $key => $value) {
 
                 if (strstr($key, '-')) {
@@ -114,6 +128,19 @@ class GeneralController extends Controller
 
             return back()->with('success', 'Registro actualizado correctamente');
 
+    }
+
+    public function saveImg($file, $route, $nombreImagen)
+    {
+      $manager = new ImageManager(new Driver());
+      $img =  $manager->read($file);
+      // $img->coverDown(1000, 1500, 'center');
+  
+      if (!file_exists($route)) {
+        mkdir($route, 0777, true);
+      }
+  
+      $img->save($route . $nombreImagen);
     }
 
     private function actualizarEspecificacion($detalleContacto)
