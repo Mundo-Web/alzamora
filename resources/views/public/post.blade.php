@@ -12,8 +12,8 @@
     <main>
 
         <section class="w-full px-[5%] xl:px-[10%] flex flex-col gap-5 lg:flex-row justify-between lg:items-center mt-10">
-            <h2 class="font-PreloBold text-4xl lg:text-5xl lg:max-w-xl">Soluciones legales para desafíos modernos.</h2>
-            <p class="font-PreloMedium text-lg lg:max-w-xl">Sed sem quam, luctus sed orci ac, porta lobortis justo. Praesent lobortis maximus orci quis ultricies. Phasellus erat dui, semper vel rutrum sed, bibendum et sem.</p>
+            <h2 class="font-PreloBold text-4xl lg:text-5xl lg:max-w-xl">{{$general->tituloserviciosdetalle ?? 'Ingresa un texto'}}  </h2>
+            <div class="font-PreloMedium text-lg lg:max-w-xl">{!! $general->descripcionserviciosdetalle ?? 'Ingresa un texto' !!}</div>
         </section>
 
         <section class="w-full px-[5%] xl:px-[10%] flex flex-col gap-5 lg:flex-row  mt-5 lg:mt-10 mb-16 lg:mb-20">
@@ -35,9 +35,9 @@
             <div class="w-full lg:w-2/3 flex flex-col items-start justify-start gap-4">
                     <h2 class="font-PreloBold text-4xl lg:text-5xl lg:max-w-xl uppercase">{{$post->title}}</h2> 
                     
-                    @if($post->url_image)
+                    @if($post->url_image2)
                         <div class="w-full" data-aos="fade-up" data-aos-offset="150">
-                            <img src="{{asset($post->url_image . $post->name_image)}}" alt="catedral" class="w-full h-[400px] object-contain" />
+                            <img src="{{asset($post->url_image2 . $post->name_image2)}}" alt="catedral" class="w-full h-[400px] object-cover" />
                         </div>
                      @endif 
 

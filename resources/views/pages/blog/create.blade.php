@@ -51,9 +51,16 @@
                                             </div>
 
                                             <div class="md:col-span-5">
-                                                <label for="imagen">Imagen principal</label>
+                                                <label for="imagen">Imagen para carrusel</label>
                                                 <div class="relative mb-2  mt-2">
                                                     <input id="imagen" name="imagen" class="p-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                                                </div>
+                                            </div>
+
+                                            <div class="md:col-span-5">
+                                                <label for="imagen2">Imagen para detalle de servicio</label>
+                                                <div class="relative mb-2  mt-2">
+                                                    <input id="imagen2" name="imagen2" class="p-2.5 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                                                 </div>
                                             </div>
                                             
@@ -155,7 +162,7 @@
                                                     <a href="{{ URL::previous() }}"  class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">Volver</a>
                                                 </div>
                                                 <div class="inline-flex items-end">
-                                                <button type="submit"  class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Guardar post</button>
+                                                <button type="submit"  class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Guardar</button>
                                                 </div>
                                             </div>
 

@@ -78,6 +78,24 @@ class BlogController extends Controller
             $post->url_image = $routeImg;
             $post->name_image = $nombreImagen;
         }
+
+        if ($request->hasFile('imagen2')) {
+          $file2 = $request->file('imagen2');
+          $routeImg2 = 'storage/images/post/';
+          $nombreImagen2 = Str::random(10) . '_' . $file2->getClientOriginalName();
+
+          $this->saveImg($file2, $routeImg2, $nombreImagen2);
+
+          $post->url_image2 = $routeImg2;
+          $post->name_image2 = $nombreImagen2;
+      } else {
+          $routeImg2 = 'images/img/';
+          $nombreImagen2 = 'noimagenslider.jpg';
+
+          $post->url_image2 = $routeImg2;
+          $post->name_image2 = $nombreImagen2;
+      }
+
     $url = $request->video;
     $post->url_video = $this->getYTVideoId($url);
     $post->category_id = $request->category_id;
@@ -156,6 +174,21 @@ class BlogController extends Controller
 
       $post->url_image = $routeImg;
       $post->name_image = $nombreImagen;
+  }
+
+  if ($request->hasFile('imagen2')) {
+    $file2 = $request->file('imagen2');
+    $routeImg2 = 'storage/images/post/';
+    $nombreImagen2 = Str::random(10) . '_' . $file2->getClientOriginalName();
+
+    if ($post->url_image2 !== 'images/img/') {
+        File::delete($post->url_image2 . $post->name_image2);
+    }
+
+    $this->saveImg($file2, $routeImg2, $nombreImagen2);
+
+    $post->url_image2 = $routeImg2;
+    $post->name_image2 = $nombreImagen2;
   }
 
     $url = $request->video;

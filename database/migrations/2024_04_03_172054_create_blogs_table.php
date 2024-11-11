@@ -19,7 +19,9 @@ return new class extends Migration
             $table->text('extract')->nullable();
             $table->text('description')->nullable();
             $table->string('url_image')->nullable();
+            $table->string('url_image2')->nullable();
             $table->string('name_image')->nullable();
+            $table->string('name_image2')->nullable();
             $table->string('url_video')->nullable();
             $table->boolean('visible')->default(false);
             $table->boolean('status')->default(false);

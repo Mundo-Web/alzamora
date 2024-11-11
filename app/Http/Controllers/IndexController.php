@@ -642,12 +642,13 @@ class IndexController extends Controller
     {
         $post = Blog::where('status', '=', 1)->where('visible', '=', 1)->where('id', '=', $id)->first();
         $posts = Blog::where('status', '=', 1)->where('visible', '=', 1)->get();
+        $general = General::first();
         $meta_title = $post->meta_title ?? $post->title;
         $meta_description = $post->meta_description  ?? Str::limit($post->extract, 160);
         $meta_keywords = $post->meta_keywords ?? '';
         $idactual = $id;
 
-        return view('public.post', compact('meta_title','meta_description','meta_keywords','post','posts','idactual'));
+        return view('public.post', compact('meta_title','meta_description','meta_keywords','post','posts','idactual','general'));
     }
 
     public function catalogosDescargables($filtro)
