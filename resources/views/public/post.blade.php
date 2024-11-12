@@ -51,7 +51,7 @@
                         </div>
                     @endif  
 
-                    <a class="px-6 py-3 w-60 text-center text-base uppercase bg-[#1C1C1A] text-white max-md:px-5 font-PreloBold mt-3">CONTRATAR SERVICIO</a>
+                    <a id="chatonline" class="px-6 py-3 w-60 text-center text-base uppercase bg-[#1C1C1A] text-white max-md:px-5 font-PreloBold mt-3">CONTRATAR SERVICIO</a>
             </div>
 
             
@@ -63,6 +63,41 @@
 
 @section('scripts_importados')
 
+<script>
+    $(document).ready(function() {
+        $('#chatonline').click(function() {
+
+            function isMobile() {
+                if (sessionStorage.desktop)
+                    return false;
+                else if (localStorage.mobile)
+                    return true;
+                var mobile = ['iphone', 'ipad', 'android', 'blackberry', 'nokia', 'opera mini',
+                    'windows mobile', 'windows phone', 'iemobile'
+                ];
+                for (var i in mobile)
+                    if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0)
+                        return true;
+                return false;
+            }
+
+            setTimeout(function() {
+
+                telefono2 = "{{ $general->whatsapp }}";
+                nombre2 = "{{ $post->title }}";
+                mensaje2 = 'send?phone=' + telefono2 +
+                    '&text=Hola, quiero comunicarme con un asesor.%0AEstoy interesad@ en el servicio *' +
+                    nombre2 + '*.';
+
+                if (isMobile()) {
+                    window.open('https://api.whatsapp.com/' + mensaje2, '_blank');
+                } else {
+                    window.open('https://web.whatsapp.com/' + mensaje2, '_blank');
+                }
+            }, 200);
+        });
+    });
+</script>
 
 @stop
 

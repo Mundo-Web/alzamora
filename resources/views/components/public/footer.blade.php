@@ -52,7 +52,7 @@
                     <a>{{ $general[0]->address }}, {{ $general[0]->inside }},
                                         {{ $general[0]->district }} - {{ $general[0]->city }}</a>
                     <a>Correo Electrónico: <br> {{ $general[0]->email }}</a> 
-                    <a>Teléfono: {{ $general[0]->office_phone }}</a>
+                    <a>Teléfono:<br> {{ $general[0]->cellphone }}</a>
                 </div>
             </div>
 
