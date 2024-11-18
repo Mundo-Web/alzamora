@@ -51,7 +51,7 @@
                         </div>
                     @endif  
 
-                    <a id="chatonline" class="px-6 py-3 w-60 text-center text-base uppercase bg-[#1C1C1A] text-white max-md:px-5 font-PreloBold mt-3">CONTRATAR SERVICIO</a>
+                    <a id="chatonline" class="cursor-pointer px-6 py-3 w-60 text-center text-base uppercase bg-[#1C1C1A] text-white max-md:px-5 font-PreloBold mt-3">CONTRATAR SERVICIO</a>
             </div>
 
             
