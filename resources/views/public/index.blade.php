@@ -3,6 +3,13 @@
 @section('css_importados')
 
     <style>
+
+        .swiper-pagination-servicios span{
+            min-width: 450px;
+            border: none;
+            max-width: 500px;
+        }
+
         .swiper-pagination_servicios .swiper-pagination-bullet-active {
             display:none!important;
             background:red!important;
@@ -247,7 +254,7 @@
                             <div class="text-black my-auto  w-full lg:pl-[5%] ">
                                 {{-- max-w-2xl       --}}
                                 <div class="swiper slider_productos">
-                                    <div class="swiper-wrapper ">
+                                    <div class="swiper-wrapper">
                                     @foreach($posts as $servicios)  
                                         <div  class="swiper-slide servicio-{{$servicios->id}}">
                                             <div class="w-full sm:max-w-md flex flex-col gap-5 mx-auto">
