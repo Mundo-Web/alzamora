@@ -84,7 +84,8 @@
 
                                             <div class="md:col-span-5">
                                                 <label for="description">Descripcion de servicio</label>
-                                                <div class="relative mb-2 mt-2">
+                                                <div class="relative mb-2 mt-2 ">
+                                                    
                                                     <x-textarea name="description" value="{!! $blog->description !!}" />
                                                 </div>
                                             </div>
@@ -191,26 +192,21 @@
     
 </div>
 
-
+{{-- 
+<script src="ckeditor/ckeditor.js"></script>
 <script>
-    $('document').ready(function(){
-       
-        tinymce.init({
-                    selector: 'textarea#description',
-                    height: 500,
-                    plugins: [
-                        'advlist', 'autolink', 'lists', 'link', 'charmap', 'preview',
-                        'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                        'insertdatetime', 'table'
-                    ],
-                    toolbar: 'undo redo | blocks | ' +
-                    'bold italic backcolor | alignleft aligncenter ' +
-                    'alignright alignjustify | bullist numlist outdent indent | ' +
-                    'removeformat | help',
-                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px;}'
-                });
+     $(document).ready(function () {
+        CKEDITOR.replace('content');
+        if (CKEDITOR.instances.content) {
+            CKEDITOR.instances.content.on('instanceReady', function () {
+                this.setData('');
+            });
+        } else {
+            console.error('No se encontró la instancia de CKEditor.');
+        }
+    });
+    
+</script> --}}
 
-    })
-</script>
 
 </x-app-layout>

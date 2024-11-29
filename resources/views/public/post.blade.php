@@ -18,7 +18,7 @@
 
         <section class="w-full px-[5%] xl:px-[10%] flex flex-col gap-5 lg:flex-row  mt-5 lg:mt-10 mb-16 lg:mb-20">
 
-            <div class="w-1/3 flex flex-col items-start justify-start">
+            <div class="w-full hidden md:flex md:w-1/3  flex-col items-start justify-start">
                     <div class="flex flex-col justify-start items-start mt-5">
                         @foreach($posts as $item)
                             <div class="flex flex-row gap-2 justify-start items-center mb-3">

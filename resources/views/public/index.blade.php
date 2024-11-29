@@ -4,6 +4,7 @@
 
     <style>
 
+
         .swiper-pagination-servicios span{
             min-width: 450px;
             border: none;
@@ -26,48 +27,11 @@
            
         }
 
-        .swiper-pagination_productos .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
-            background-color: transparent;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            width: 20px;
-            height: 20px;
-            opacity: 1;
-            background-image: url({{ asset('images/svg/image_30.svg') }});
-        }
+      
 
-        .swiper-button-next {
-            background-color: #FFD9C7;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: calc(var(--swiper-navigation-size) / 29 * 27) !important;
-            height: 50px;
-            border-radius: 50%;
-            transition: background-color 0.3s ease-in;
-            background-image: url({{ asset('images/svg/image_43.svg') }})
-        }
+       
 
-        .swiper-button-next:hover {
-            background-color: #1C1C1A;
-            opacity: 1;
-        }
-
-        .swiper-button-prev {
-            background-color: #FFD9C7;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: calc(var(--swiper-navigation-size) / 29 * 27) !important;
-            height: 50px;
-            border-radius: 50%;
-            transition: background-color 0.3s ease-in;
-            background-image: url({{ asset('images/svg/image_44.svg') }})
-        }
-
-        .swiper-button-prev:hover {
-            background-color: #1C1C1A;
-            opacity: 1;
-        }
+        
 
         .portada {
             background-image: url({{asset('images/img/portada.png')}})
@@ -253,7 +217,7 @@
                 <article class="flex flex-col w-full lg:w-[50%] pt-10 lg:pt-0">
                             <div class="text-black my-auto  w-full lg:pl-[5%] ">
                                 {{-- max-w-2xl       --}}
-                                <div class="swiper slider_productos">
+                                <div class="swiper slider_servicios">
                                     <div class="swiper-wrapper">
                                     @foreach($posts as $servicios)  
                                         <div  class="swiper-slide servicio-{{$servicios->id}}">
@@ -745,9 +709,9 @@
 
         const serviceTitles = @json($posts->pluck('title'));
 
-        var swiper = new Swiper(".slider_productos", {
-            slidesPerView: 1,
-            spaceBetween: 0,
+        var swiper = new Swiper(".slider_servicios", {
+            slidesPerView: 1.2,
+            spaceBetween: 5,
             initialSlide: 0,
             grabCursor: true,
             loop: false,
@@ -756,34 +720,36 @@
             //    disableOnInteraction: true,
             //},
             pagination: {
+              
                 el: ".swiper-pagination-servicios",
                 clickable: true,
                 renderBullet: function (index, className) {
-                    return '<span class="' + className + ' uppercase text-lg font-PreloSemibold  hover:border-b hover:border-black">' + serviceTitles[index] + "</span><br>";
+                        return `<span class="${className} uppercase text-lg font-PreloSemibold swiper-pagination-bullet" 
+                        data-index="${index}">${serviceTitles[index]}</span>`;
                 },
             },
             breakpoints: {
                 0: {
                     slidesPerView: 1,
-                    spaceBetween: 20,
+                    spaceBetween: 5,
                     centeredSlides: true,
                 },
                 800: {
-                    slidesPerView: 2,
-                    spaceBetween: 50,
+                    slidesPerView: 1,
+                    spaceBetween: 5,
                     centeredSlides: false,
 
                 },
                 1025: {
-                    slidesPerView: 1,
+                    slidesPerView: 1.2,
                     spaceBetween: 20,
                     centeredSlides: false,
 
                 },
 
                 1400: {
-                    slidesPerView: 1,
-                    spaceBetween: -180,
+                    slidesPerView: 1.2,
+                    spaceBetween: 5,
                     centeredSlides: false,
 
                 },
@@ -791,6 +757,12 @@
             },
         });
 
+        document.querySelectorAll('.swiper-pagination-servicios .swiper-pagination-bullet').forEach((bullet) => {
+            bullet.addEventListener('click', function () {
+                const index = this.getAttribute('data-index');
+                swiper.slideTo(index);
+            });
+        });
 
         var swiper = new Swiper(".testimonios", {
             slidesPerView: 1,
