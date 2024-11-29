@@ -140,7 +140,8 @@
                     <div class="flex max-md:flex-col">
                         <figure class="flex flex-col w-[50%] max-md:w-full ">
                             <img loading="lazy"
-                                src="{{asset('images/img/imagenabout.png')}}"
+                                {{-- src="{{asset('images/img/imagenabout.png')}}" --}}
+                                src="{{asset('images/img/man-making-his-move.jpg')}}"
                                 alt="Alzamora & Asociados Law Firm Office"
                                 class="object-cover grow w-full aspect-[0.7]" />
                         </figure>
