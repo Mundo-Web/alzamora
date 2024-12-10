@@ -1448,4 +1448,8 @@ class IndexController extends Controller
           //     /></a>
           //   </td>
           // </tr>
+
+    public function thankyoupage(){
+      return view('public.thankyoupage');
+    }
 }

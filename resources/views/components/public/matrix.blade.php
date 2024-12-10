@@ -170,9 +170,12 @@
                     Swal.fire({
                         title: response.message,
                         icon: "success",
+                    }).then(() => {
+                        $('#formContactos')[0].reset();
+                        window.location.href = "/thankyoupage";
                     });
 
-                    $('#formContactos')[0].reset();
+                    
                 },
                 error: function(error) {
                     Swal.close();

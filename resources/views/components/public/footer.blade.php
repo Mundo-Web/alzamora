@@ -11,9 +11,9 @@
 </style>
 <footer class="bg-[#1C1C1A]">
     <div class="grid grid-cols-1 md:grid-cols-2 w-11/12 mx-auto py-10 gap-10 md:gap-5">
-        <div class="w-full md:max-w-[500px] flex flex-col gap-5" data-aos="fade-up" data-aos-offset="150">
+        <div class="w-full md:max-w-[500px] flex flex-col gap-5">
             <a href="{{ route('index') }}">
-                <img src="{{ asset('images/svg/logoalzamora.svg') }}" alt="HPI" class="w-[250px]" />
+                <img src="{{ asset('images/svg/logoalzamora.svg') }}" alt="ALZAMORA" class="w-[250px]" />
             </a>
 
             <div class="text-white font-PreloMedium text-base max-w-sm">

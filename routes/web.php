@@ -106,6 +106,7 @@ Route::get('/404', [IndexController::class, 'error'])->name('error');
 
 /* Formulario de contacto */
 Route::post('guardarContactos', [IndexController::class, 'guardarContacto'])->name('guardarContactos');
+Route::get('thankyoupage', [IndexController::class, 'thankyoupage'])->name('thankyoupage');
 Route::post('guardarContactoWsp', [IndexController::class, 'guardarContactoWsp'])->name('guardarContactoWsp');
 Route::post('guardarProducto', [IndexController::class, 'guardarProducto'])->name('guardarProducto');
 
