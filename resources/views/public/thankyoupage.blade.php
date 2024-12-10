@@ -17,6 +17,9 @@
                         "Hemos recibido tu mensaje y nuestro equipo se pondrá en contacto contigo lo antes posible. Agradecemos tu interés y confianza en nosotros."
                     </div>
                 </div>
+                <div class="flex flex-row justify-center">
+                    <a href="/" class="mt-8 px-6 py-3 w-60 text-center text-base uppercase bg-[#1C1C1A] text-white max-md:px-5 font-PreloBold">SEGUIR NAVEGANDO</a>
+                </div>
            </div>
         </section>
     </main>
