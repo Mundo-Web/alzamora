@@ -9,7 +9,14 @@
     <meta name="keywords" content="@yield('meta_keywords', 'default, keywords')">
     <title>@yield('meta_title', 'ALZAMORA ASOCIADOS')</title>
     
-    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80NRV03W4B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-80NRV03W4B');
+    </script>    
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
