@@ -29,10 +29,6 @@ class UsersSeeder extends Seeder
             'password' => Hash::make('12345678'),
         ])->assignRole('Customer');
 
-        User::create([
-            'name' => 'Admin Alzamora',
-            'email' => 'admin@alzamoraasociados.com',
-            'password' => Hash::make('alzamora2025#'),
-        ])->assignRole('Admin');
+        
     }
 }
